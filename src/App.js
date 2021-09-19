@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Transition} from 'react-transition-group';
+import {CSSTransition} from 'react-transition-group';
 import './App.css';
 
 
@@ -20,7 +20,7 @@ class App extends Component {
         <h1>React Animation</h1>
         <button onClick={()=>this.setState({show:!this.state.show})}>Toggle</button>
 
-        <Transition 
+        <CSSTransition 
         in={this.state.show} 
         timeout={animateTime} 
         mountOnEnter 
@@ -31,6 +31,7 @@ class App extends Component {
         onExit={()=>console.log("onExit")}
         onExited={()=>console.log("onExited")}
         onExiting={()=>console.log("onExiting")}
+        className="myClass"
 
         >
           {
@@ -39,8 +40,8 @@ class App extends Component {
             background:"black",
             color:"white",
             borderRadius:4,
-            opacity:mode==="exiting"?0:1 || mode==="entering"?0:1,
-            transition:'opacity 2s ease-out',
+            //opacity:mode==="exiting"?0:1 || mode==="entering"?1:0,
+            //transition:'opacity 2s ease-out',
           }}>
           <p>Hello Sajib!!</p>
   
@@ -48,7 +49,7 @@ class App extends Component {
         )
           }
         
-        </Transition>
+        </CSSTransition>
 
         <p>I am Outside Transition</p>
       </div>
